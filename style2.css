@@ -1,0 +1,79 @@
+:root {
+  --backgroud_color: rgb(126, 132, 148);
+  --wrapper_color: rgba(188, 194, 204, 0.904);
+}
+
+/* Font "Poppins" pour l'application */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
+/* l'étoile sert à donner un style par défaut à tous les éléments */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: rgb(0, 0, 0);
+  font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  align-items: center;
+}
+
+body {
+  background-color: var(--backgroud_color);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+wrapper {
+    background-color: var(--wrapper_color);
+/* max-width: 90vmax; */
+min-height: 90vh;
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-gap: 10px;
+margin: 50px 50px;
+border: 1px solid rgba(245, 245, 245, 0.199);
+border-radius: 20px;
+box-shadow: 0px 3px 10px 5px rgba(1, 2, 3, 0.089);
+padding: 15px;
+color: var(--wrapper_color);
+}
+
+.grid_main, .grid_second {
+border: 5px solid rgba(245, 245, 245, 0.199);
+margin: 10px;
+border-radius: 20px;
+padding: 15px;
+}
+
+.nested{
+display : grid;
+grid-template-rows : repeat(3, 1fr);
+align-content: stretch;
+}
+
+#weather_main {
+align-self: stretch;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: 40% 40% 20%;
+}
+
+#temp_real{
+font-size: 8vw;
+}
+
+#city_name {
+font-size: 2.5vw;
+}
+
+#temp_feel, #humidity, #wind {
+    align-self: stretch;
+display: grid;
+grid-template-columns: 1fr 1fr;
+font-size: 2em;
+}
+
+#humidity_icon{
+    margin: 20%;;
+}

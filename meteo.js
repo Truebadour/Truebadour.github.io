@@ -24,20 +24,33 @@ const writeTest = () => {
   let tempFeel = apiData.current.feelslike_c;
   let humidity = apiData.current.humidity;
   let wind = apiData.current.wind_kph;
+  let condition = apiData.current.condition.code;
+  let imageSource;
+
+  // if (condition==1000) {
+  //   imageSource = 'sun.svg';
+  // } else if (condition==1003 || condition ==1006 || condition ==1009) {
+  //   imageSource = 'cloud.svg';
+  //   }
+  //   else {
+  //     imageSource = 'rien';
+  //   };
+
   //  await fetchApiData();
-  document.querySelector(".city_name").innerText = city;
-  document.querySelector(".temp_real").innerText =
-    "Température : " + tempReal + " °C";
-  document.querySelector(".temp_feel").innerText = tempFeel + "°C ressenti"
-  document.querySelector(".humidity_text").innerText = humidity + " %";
-  document.querySelector(".wind_text").innerText = wind + " km/h";
+  document.getElementById("city_name").innerText = city;
+  document.getElementById("temp_real").innerText = Math.round(tempReal) + " °C";
+  document.getElementById("temp_feel_value").innerText =
+    Math.round(tempFeel) + "°C ressentis";
+  document.getElementById("humidity_value").innerText = humidity + " %";
+  document.getElementById("wind_value").innerText = Math.round(wind) + " km/h";
+  // document.getElementById("weather_icon").innerHTML = `<img src="./assets/cloud_rain.svg">`;
 };
 
 window.addEventListener("load", fetchApiData);
-//fonction de rafraîchissement de la page toutes les heures
-window.setInterval('refresh()', 3000); // CHANGER "3" par "3600" après test !
-    
-// Refresh or reload page.
+// fonction de rafraîchissement de la page toutes les heures
+window.setInterval("refresh()", 3600000); // CHANGER 3600 par le nombre de secondes pour tester !
+
+//fonction de rafraîchissement de la page
 function refresh() {
-    window .location.reload();
+  window.location.reload();
 }

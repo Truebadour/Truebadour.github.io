@@ -7,52 +7,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Titre Onglet -->
     <title>Appli météo</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style2.css" />
     <!-- Icone Onglet -->
     <link rel="shortcut icon" href="./assets/logos/logo_page.png" />
 </head>
 
 <body>
-    <!-- wrapper correspond à la grille contenant les différentes sous-catégories météo -->
-    <main class="wrapper">
-        <!-- montre le nom de la ville ainsi qu'un logo symbolisant la météo actuelle et la température -->
-        <section class="weather_main">
-            <!-- logo + nom de la ville -->
-            <div class="city_main">
-                <span class="location_icon"></span>
-                <span class="city_name"></span>
-            </div>
-            <!-- élement le plus important, doit donner les conditions météo actuelles et la température d'un coup d'oeil
-            ***Un grand icône
-            ***le type de temps (texte)
-            ***la température réelle
-            -->
-            <div class="weather_big">
-                <div class="weather_icon"></div>
-                <div class="weather_type"></div>
-                <div class="temp_real"></div>
-            </div>
-        </section>
-        <!-- température ressentie exprimée en °C -->
-        <section class="temp_feel">
-            <!-- span avec un logo thermomètre associé à la température ressentie en °C -->
-            <span class="temp_feel_icon"></span>
-            <span class="temp_feel_text"></span>
-        </section>
-        <!-- humidité exprimée en pourcentages -->
-        <section class="humidity">
-            <!-- span avec un logo goutte associé au pourcentage d'humidité -->
-            <span class="humidity_icon"></span>
-            <span class="humidity_text"></span>
-        </section>
-        <!-- vent exprimée en km/h -->
-        <section class="wind">
-            <!-- span avec un logo vent associé à la vitesse du vent en kmh -->
-            <span class="wind_icon"></span>
-            <span class="wind_text"></span>
-        </section>
-    </main>
-    <script defer src="meteo.js"></script>
-</body>
+    <wrapper>
 
+        <div class="grid_main" id="weather_main">
+            <p id="temp_real"></p>
+            <p id="weather_icon"></p>
+            <p id="city_name"></p>
+
+        </div>
+
+        <div class="nested">
+            <div class="grid_second" id="temp_feel">
+
+                <img src="./assets/temp.svg">
+                
+                <p id="temp_feel_value"></p>
+
+            </div>
+
+            <div class="grid_second" id="humidity">
+
+                <img src="./assets/humidity.svg" alt="" id="humidity_icon">
+
+                <p id="humidity_value"></p>
+
+            </div>
+
+            <div class="grid_second" id="wind">
+
+                <img src="./assets/wind.svg" alt="">
+
+                <p id="wind_value"></p>
+
+            </div>
+        </div>
+    </wrapper>
+</body>
+<script defer src="meteo.js"></script>
 </html>
