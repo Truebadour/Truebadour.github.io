@@ -1,6 +1,6 @@
 :root {
-  --backgroud_color: rgb(47, 93, 223);
-  --wrapper_color: rgb(77, 132, 233);
+  --backgroud_color: rgb(126, 132, 148);
+  --wrapper_color: rgba(188, 194, 204, 0.904);
 }
 
 /* Font "Poppins" pour l'application */
@@ -10,9 +10,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: whitesmoke;
+  color: rgb(0, 0, 0);
   font-family: "Poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   text-align: center;
+  align-items: center;
 }
 
 body {
@@ -23,54 +24,56 @@ body {
   justify-content: center;
 }
 
-.wrapper {
-  aspect-ratio: 16/9;
-  margin: 0 5vh;
-  background-color: var(--wrapper_color);
-  min-width: 400px;
-  min-height: 600px;
-  border: 1px solid rgba(245, 245, 245, 0.199);
-  border-radius: 20px;
-  box-shadow: 0px 3px 10px 5px rgba(1, 2, 3, 0.089);
-  padding: 15px;
-  display: grid;
-  grid-template-columns: 60% 40%;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-areas:
-    "wg tp"
-    "wg hu"
-    "wg wi";
+wrapper {
+    background-color: var(--wrapper_color);
+/* max-width: 90vmax; */
+min-height: 90vh;
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+grid-gap: 10px;
+margin: 50px 50px;
+border: 1px solid rgba(245, 245, 245, 0.199);
+border-radius: 20px;
+box-shadow: 0px 3px 10px 5px rgba(1, 2, 3, 0.089);
+padding: 15px;
+color: var(--wrapper_color);
 }
 
-.weather_main {
-  grid-area: wg;
-  background: gray;
-  align-items: center;
+.grid_main, .grid_second {
+border: 5px solid rgba(245, 245, 245, 0.199);
+margin: 10px;
+border-radius: 20px;
+padding: 15px;
 }
 
-.temp_feel {
-  grid-area: tp;
-  background: tomato;
+.nested{
+display : grid;
+grid-template-rows : repeat(3, 1fr);
+align-content: stretch;
 }
 
-.humidity {
-  grid-area: hu;
-  background: turquoise;
+#weather_main {
+align-self: stretch;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: 40% 40% 20%;
 }
 
-.wind {
-  grid-area: wi;
-  background: violet;
+#temp_real{
+font-size: 8vw;
 }
-@media screen and (max-width: 600px){
-    .wrapper{
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 55% 15% 15% 15%;
-        grid-template-areas: 
-        "wg"
-        "tp"
-        "hu"
-        "wi";
-    }
+
+#city_name {
+font-size: 2.5vw;
+}
+
+#temp_feel, #humidity, #wind {
+    align-self: stretch;
+display: grid;
+grid-template-columns: 1fr 1fr;
+font-size: 2em;
+}
+
+#humidity_icon{
+    margin: 20%;;
 }
