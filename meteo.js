@@ -5,7 +5,7 @@ const fetchApiData = async () => {
     .then((res) => res.json())
     .then((res) => (data = res));
   await fetch(
-    `https://api.weatherapi.com/v1/current.json?key=${data.apiKey}&q=${data.ville}`
+    `https://api.weatherapi.com/v1/current.json?key=${data.apiKey}&q=${data.ville}&aqi=no`
   )
     .then((res) => res.json())
     .then((res) => (apiData = res));
