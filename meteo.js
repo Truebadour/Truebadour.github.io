@@ -19,14 +19,25 @@ const showMe = async () => {
 };
 
 const writeTest = () => {
-    let city = apiData.location.name;
-    let temp = apiData.current.temp_c;
-    let humidity = apiData.current.humidity;
+  let city = apiData.location.name;
+  let tempReal = apiData.current.temp_c;
+  let tempFeel = apiData.current.feelslike_c;
+  let humidity = apiData.current.humidity;
+  let wind = apiData.current.wind_kph;
   //  await fetchApiData();
-   document.querySelector(".city_name").innerText = "Weather in " + city;
-   document.querySelector(".temp_real").innerText = "Température : " + temp;
-   document.querySelector(".humidity_text").innerText = "Humidité " + humidity;
- 
+  document.querySelector(".city_name").innerText = city;
+  document.querySelector(".temp_real").innerText =
+    "Température : " + tempReal + " °C";
+  document.querySelector(".temp_feel").innerText = tempFeel + "°C ressenti"
+  document.querySelector(".humidity_text").innerText = humidity + " %";
+  document.querySelector(".wind_text").innerText = wind + " km/h";
 };
 
 window.addEventListener("load", fetchApiData);
+//fonction de rafraîchissement de la page toutes les heures
+window.setInterval('refresh()', 3000); // CHANGER "3" par "3600" après test !
+    
+// Refresh or reload page.
+function refresh() {
+    window .location.reload();
+}
